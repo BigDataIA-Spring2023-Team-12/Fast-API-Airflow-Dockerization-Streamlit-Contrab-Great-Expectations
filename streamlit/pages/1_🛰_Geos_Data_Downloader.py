@@ -6,7 +6,6 @@ import datetime
 import sqlite3
 import io
 import webbrowser
-import s3fs
 import os
 
 
@@ -69,7 +68,7 @@ def url_gen(input):
 def download_file(name,path):
     st.write("Downloading.....")
     url = upload_file_to_s3(name,path,"noaa-goes18","the-data-guys")
-    webbrowser.open_new_tab(url)
+    st.write(url)
     st.write("Done.")
 # this function displays input_boxes for search by filename method
 def search_by_filename():
@@ -140,7 +139,7 @@ def search_by_path():
         
     st.dataframe(st.session_state['log_df'])
 
-connection = sqlite3.connect("../streamlit/meta_data.db")
+connection = sqlite3.connect("streamlit/meta_data.db")
 cursor = connection.cursor()
 
 

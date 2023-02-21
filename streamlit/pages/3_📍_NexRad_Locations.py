@@ -3,13 +3,9 @@ import plotly.graph_objects as go
 import pandas as pd
 
 
-# st.set_page_config(
-#     page_title="Hello",
-#     page_icon="🛰",
-# )
 
 st.write("# Nexrad Locations in USA 📍")
-df = pd.read_csv('./nexrad_loc.csv')
+df = pd.read_csv('streamlit/nexrad_loc.csv')
 df['text'] = 'City: ' + df['City'] + ', ' + 'State: '+ df["State"] + ', ' + 'Identifier: ' + df['ICAO Location Identifier'].astype(str)
 
 

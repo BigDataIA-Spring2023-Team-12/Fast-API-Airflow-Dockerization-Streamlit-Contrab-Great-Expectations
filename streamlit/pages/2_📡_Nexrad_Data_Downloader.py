@@ -5,7 +5,6 @@ import time
 import sqlite3
 import webbrowser
 import datetime 
-import s3fs
 import os
 import io
 
@@ -67,7 +66,7 @@ def link_gen(input):
 def download_file(name,path):
     st.write("Downloading.....")
     url = upload_file_to_s3(name,path,"noaa-nexrad-level2","the-data-guys")
-    webbrowser.open_new_tab(url)
+    st.write(url)
     st.write("Done.")
 # this function displays input_boxes for search by filename method
 
@@ -137,7 +136,7 @@ def search_by_filename():
         link = link_gen(filename_input)
     st.write("Link: {}".format(link))
 
-connection = sqlite3.connect("../streamlit/meta_data.db")
+connection = sqlite3.connect("streamlit/meta_data.db")
 cursor = connection.cursor()
 
 st.write("# NexRad Data Downloader 📡")
