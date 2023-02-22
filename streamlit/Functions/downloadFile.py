@@ -1,6 +1,6 @@
 import streamlit as st
 import webbrowser
-from uploadFileToS3 import upload_file_to_s3
+from Functions.uploadFileToS3 import upload_file_to_s3
 
 
 # function that opens up the downloaded link
