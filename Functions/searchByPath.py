@@ -61,7 +61,7 @@ def geos_search_by_path(cursor):
         st.session_state['log_df'] = pd.DataFrame(columns=['filename', 'time'])
 
     if download_btn:
-        download_file(file, path)
+        download_file(file, path,"noaa-goes18")
         st.session_state['log_df'] = st.session_state['log_df'].append(
             {'filename': file, 'time': datetime.datetime.now()}, ignore_index=True)
 
@@ -103,7 +103,6 @@ def nexrad_search_by_path(cursor):
         st.session_state['button'] = True
 
     if st.session_state['button']==True:
-        print("This Works")
         directories = extract_files("noaa-nexrad-level2", path)
         df = pd.DataFrame({"name":directories})
         df_list = [i for i in df["name"]]
@@ -119,7 +118,7 @@ def nexrad_search_by_path(cursor):
         st.session_state['log_df'] = pd.DataFrame(columns=['filename','time'])
 
     if download_btn:
-        download_file(file,path)
+        download_file(file,path,"noaa-nexrad-level2")
         st.session_state['log_df'] = st.session_state['log_df'].append({'filename':file,'time':datetime.datetime.now()},ignore_index=True)
         
     st.dataframe(st.session_state['log_df'])
