@@ -3,6 +3,7 @@ import pandas as pd
 import datetime
 from Functions.extractFiles import extract_files
 from Functions.downloadFile import download_file
+from Functions.databaseAuth import get_db
 
 
 # this function displays input_boxes for search by file path method
