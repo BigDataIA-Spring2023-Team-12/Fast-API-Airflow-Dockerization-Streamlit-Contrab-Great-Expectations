@@ -1,0 +1,451 @@
+{
+  "evaluation_parameters": {},
+  "meta": {
+    "active_batch_definition": {
+      "batch_identifiers": {},
+      "data_asset_name": "nexrad",
+      "data_connector_name": "default_inferred_data_connector_name",
+      "datasource_name": "nexrad_datasource_1"
+    },
+    "batch_markers": {
+      "ge_load_time": "20230223T024647.250954Z",
+      "pandas_data_fingerprint": "f7863384fb30a84738b03391053a2773"
+    },
+    "batch_spec": {
+      "path": "C:\\Users\\harsh\\Desktop\\NEU Spring 23\\BIG DATA\\A2\\Fast-API-Airflow-Dockerization-Streamlit-Contrab-Great-Expectations\\ge\\great_expectations\\data\\nexrad.csv"
+    },
+    "checkpoint_id": null,
+    "checkpoint_name": "nexrad_test_2",
+    "expectation_suite_name": "nexrad_suite_1",
+    "great_expectations_version": "0.15.49",
+    "run_id": {
+      "run_name": "20230222-214647-my-run-name-template",
+      "run_time": "2023-02-22T21:46:47.192822+00:00"
+    },
+    "validation_id": null,
+    "validation_time": "20230223T024647.449865Z"
+  },
+  "results": [
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_table_row_count_to_be_between",
+        "kwargs": {
+          "batch_id": "ad8a926318131043837a04ab54fd4525",
+          "max_value": 1000000,
+          "min_value": 0
+        },
+        "meta": {
+          "profiler_details": {
+            "metric_configuration": {
+              "domain_kwargs": {},
+              "metric_name": "table.row_count",
+              "metric_value_kwargs": null
+            },
+            "num_batches": 1
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "observed_value": 80956
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_table_columns_to_match_set",
+        "kwargs": {
+          "batch_id": "ad8a926318131043837a04ab54fd4525",
+          "column_set": [
+            "station",
+            "day",
+            "month",
+            "year"
+          ]
+        },
+        "meta": {
+          "profiler_details": {
+            "success_ratio": 1.0
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "observed_value": [
+          "year",
+          "month",
+          "day",
+          "station"
+        ]
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "ad8a926318131043837a04ab54fd4525",
+          "column": "year"
+        },
+        "meta": {
+          "profiler_details": {
+            "metric_configuration": {
+              "domain_kwargs": {
+                "column": "year"
+              },
+              "metric_name": "column_values.nonnull.unexpected_count",
+              "metric_value_kwargs": null
+            },
+            "num_batches": 1
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 80956,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_be_between",
+        "kwargs": {
+          "batch_id": "ad8a926318131043837a04ab54fd4525",
+          "column": "year",
+          "max_value": 2023,
+          "min_value": 1970,
+          "mostly": 1.0,
+          "strict_max": false,
+          "strict_min": false
+        },
+        "meta": {
+          "profiler_details": {
+            "column_max_values_range_estimator": {
+              "metric_configuration": {
+                "domain_kwargs": {
+                  "column": "year"
+                },
+                "metric_name": "column.max",
+                "metric_value_kwargs": null
+              },
+              "num_batches": 1
+            },
+            "column_min_values_range_estimator": {
+              "metric_configuration": {
+                "domain_kwargs": {
+                  "column": "year"
+                },
+                "metric_name": "column.min",
+                "metric_value_kwargs": null
+              },
+              "num_batches": 1
+            }
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 80956,
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "unexpected_percent_nonmissing": 0.0,
+        "unexpected_percent_total": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "ad8a926318131043837a04ab54fd4525",
+          "column": "month"
+        },
+        "meta": {
+          "profiler_details": {
+            "metric_configuration": {
+              "domain_kwargs": {
+                "column": "month"
+              },
+              "metric_name": "column_values.nonnull.unexpected_count",
+              "metric_value_kwargs": null
+            },
+            "num_batches": 1
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 80956,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_be_between",
+        "kwargs": {
+          "batch_id": "ad8a926318131043837a04ab54fd4525",
+          "column": "month",
+          "max_value": 12,
+          "min_value": 1,
+          "mostly": 1.0,
+          "strict_max": false,
+          "strict_min": false
+        },
+        "meta": {
+          "profiler_details": {
+            "column_max_values_range_estimator": {
+              "metric_configuration": {
+                "domain_kwargs": {
+                  "column": "month"
+                },
+                "metric_name": "column.max",
+                "metric_value_kwargs": null
+              },
+              "num_batches": 1
+            },
+            "column_min_values_range_estimator": {
+              "metric_configuration": {
+                "domain_kwargs": {
+                  "column": "month"
+                },
+                "metric_name": "column.min",
+                "metric_value_kwargs": null
+              },
+              "num_batches": 1
+            }
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 80956,
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "unexpected_percent_nonmissing": 0.0,
+        "unexpected_percent_total": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_max_to_be_between",
+        "kwargs": {
+          "batch_id": "ad8a926318131043837a04ab54fd4525",
+          "column": "month",
+          "max_value": 12,
+          "min_value": 1,
+          "strict_max": false,
+          "strict_min": false
+        },
+        "meta": {
+          "profiler_details": {
+            "metric_configuration": {
+              "domain_kwargs": {
+                "column": "month"
+              },
+              "metric_name": "column.max",
+              "metric_value_kwargs": null
+            },
+            "num_batches": 1
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "observed_value": 12
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "ad8a926318131043837a04ab54fd4525",
+          "column": "station"
+        },
+        "meta": {
+          "profiler_details": {
+            "metric_configuration": {
+              "domain_kwargs": {
+                "column": "station"
+              },
+              "metric_name": "column_values.nonnull.unexpected_count",
+              "metric_value_kwargs": null
+            },
+            "num_batches": 1
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 80956,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "ad8a926318131043837a04ab54fd4525",
+          "column": "day"
+        },
+        "meta": {
+          "profiler_details": {
+            "metric_configuration": {
+              "domain_kwargs": {
+                "column": "day"
+              },
+              "metric_name": "column_values.nonnull.unexpected_count",
+              "metric_value_kwargs": null
+            },
+            "num_batches": 1
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 80956,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_be_between",
+        "kwargs": {
+          "batch_id": "ad8a926318131043837a04ab54fd4525",
+          "column": "day",
+          "max_value": 365,
+          "min_value": 0,
+          "mostly": 1.0,
+          "strict_max": false,
+          "strict_min": false
+        },
+        "meta": {
+          "profiler_details": {
+            "column_max_values_range_estimator": {
+              "metric_configuration": {
+                "domain_kwargs": {
+                  "column": "day"
+                },
+                "metric_name": "column.max",
+                "metric_value_kwargs": null
+              },
+              "num_batches": 1
+            },
+            "column_min_values_range_estimator": {
+              "metric_configuration": {
+                "domain_kwargs": {
+                  "column": "day"
+                },
+                "metric_name": "column.min",
+                "metric_value_kwargs": null
+              },
+              "num_batches": 1
+            }
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 80956,
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "unexpected_percent_nonmissing": 0.0,
+        "unexpected_percent_total": 0.0
+      },
+      "success": true
+    }
+  ],
+  "statistics": {
+    "evaluated_expectations": 10,
+    "success_percent": 100.0,
+    "successful_expectations": 10,
+    "unsuccessful_expectations": 0
+  },
+  "success": true
+}
