@@ -7,5 +7,5 @@ def extract_files(bucket_name, prefix):
     result = []
     bucket = s3.Bucket(bucket_name)
     for obj in bucket.objects.filter(Prefix=prefix):
-        result.append(obj.key)
+        result.append(obj.key.rsplit('/', 1)[-1])
     return result

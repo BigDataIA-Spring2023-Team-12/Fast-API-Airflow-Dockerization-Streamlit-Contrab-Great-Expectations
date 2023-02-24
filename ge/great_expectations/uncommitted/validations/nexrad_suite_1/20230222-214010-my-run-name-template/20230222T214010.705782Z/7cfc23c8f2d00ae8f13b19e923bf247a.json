@@ -1,0 +1,441 @@
+{
+  "evaluation_parameters": {},
+  "meta": {
+    "active_batch_definition": {
+      "batch_identifiers": {},
+      "data_asset_name": "goes",
+      "data_connector_name": "default_inferred_data_connector_name",
+      "datasource_name": "nexrad_datasource_1"
+    },
+    "batch_markers": {
+      "ge_load_time": "20230223T024010.732004Z",
+      "pandas_data_fingerprint": "4a8271e5edadce7c3fa4f57d387088a6"
+    },
+    "batch_spec": {
+      "path": "C:\\Users\\harsh\\Desktop\\NEU Spring 23\\BIG DATA\\A2\\Fast-API-Airflow-Dockerization-Streamlit-Contrab-Great-Expectations\\ge\\great_expectations\\data\\goes.csv"
+    },
+    "checkpoint_id": null,
+    "checkpoint_name": "nexrad_test_1",
+    "expectation_suite_name": "nexrad_suite_1",
+    "great_expectations_version": "0.15.49",
+    "run_id": {
+      "run_name": "20230222-214010-my-run-name-template",
+      "run_time": "2023-02-22T21:40:10.705782+00:00"
+    },
+    "validation_id": null,
+    "validation_time": "20230223T024010.781644Z"
+  },
+  "results": [
+    {
+      "exception_info": {
+        "exception_message": "Error: The column \"month\" in BatchData does not exist.",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\execution_engine\\execution_engine.py\", line 556, in _process_direct_and_bundled_metric_computation_configurations\n    **metric_computation_configuration.metric_provider_kwargs\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\expectations\\metrics\\metric_provider.py\", line 90, in inner_func\n    return metric_fn(*args, **kwargs)\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\expectations\\metrics\\map_metric_provider.py\", line 362, in inner_func\n    batch_columns_list=metrics[\"table.columns\"],\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\expectations\\metrics\\util.py\", line 676, in get_dbms_compatible_column_names\n    error_message_template=error_message_template,\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\expectations\\metrics\\util.py\", line 753, in _verify_column_names_exist_and_get_normalized_typed_column_names_map\n    message=error_message_template.format(column_name=column_name)\ngreat_expectations.exceptions.exceptions.InvalidMetricAccessorDomainKwargsKeyError: Error: The column \"month\" in BatchData does not exist.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\validator\\validation_graph.py\", line 279, in _resolve\n    runtime_configuration=runtime_configuration,\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\execution_engine\\execution_engine.py\", line 292, in resolve_metrics\n    metric_fn_bundle_configurations=metric_fn_bundle_configurations,\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\execution_engine\\execution_engine.py\", line 564, in _process_direct_and_bundled_metric_computation_configurations\n    ) from e\ngreat_expectations.exceptions.exceptions.MetricResolutionError: Error: The column \"month\" in BatchData does not exist.\n",
+        "raised_exception": true
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "7cfc23c8f2d00ae8f13b19e923bf247a",
+          "column": "month"
+        },
+        "meta": {
+          "profiler_details": {
+            "metric_configuration": {
+              "domain_kwargs": {
+                "column": "month"
+              },
+              "metric_name": "column_values.nonnull.unexpected_count",
+              "metric_value_kwargs": null
+            },
+            "num_batches": 1
+          }
+        }
+      },
+      "meta": {},
+      "result": {},
+      "success": false
+    },
+    {
+      "exception_info": {
+        "exception_message": "Error: The column \"month\" in BatchData does not exist.",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\execution_engine\\execution_engine.py\", line 556, in _process_direct_and_bundled_metric_computation_configurations\n    **metric_computation_configuration.metric_provider_kwargs\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\expectations\\metrics\\metric_provider.py\", line 90, in inner_func\n    return metric_fn(*args, **kwargs)\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\expectations\\metrics\\map_metric_provider.py\", line 362, in inner_func\n    batch_columns_list=metrics[\"table.columns\"],\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\expectations\\metrics\\util.py\", line 676, in get_dbms_compatible_column_names\n    error_message_template=error_message_template,\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\expectations\\metrics\\util.py\", line 753, in _verify_column_names_exist_and_get_normalized_typed_column_names_map\n    message=error_message_template.format(column_name=column_name)\ngreat_expectations.exceptions.exceptions.InvalidMetricAccessorDomainKwargsKeyError: Error: The column \"month\" in BatchData does not exist.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\validator\\validation_graph.py\", line 279, in _resolve\n    runtime_configuration=runtime_configuration,\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\execution_engine\\execution_engine.py\", line 292, in resolve_metrics\n    metric_fn_bundle_configurations=metric_fn_bundle_configurations,\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\execution_engine\\execution_engine.py\", line 564, in _process_direct_and_bundled_metric_computation_configurations\n    ) from e\ngreat_expectations.exceptions.exceptions.MetricResolutionError: Error: The column \"month\" in BatchData does not exist.\n",
+        "raised_exception": true
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_be_between",
+        "kwargs": {
+          "batch_id": "7cfc23c8f2d00ae8f13b19e923bf247a",
+          "column": "month",
+          "max_value": 12,
+          "min_value": 1,
+          "mostly": 1.0,
+          "strict_max": false,
+          "strict_min": false
+        },
+        "meta": {
+          "profiler_details": {
+            "column_max_values_range_estimator": {
+              "metric_configuration": {
+                "domain_kwargs": {
+                  "column": "month"
+                },
+                "metric_name": "column.max",
+                "metric_value_kwargs": null
+              },
+              "num_batches": 1
+            },
+            "column_min_values_range_estimator": {
+              "metric_configuration": {
+                "domain_kwargs": {
+                  "column": "month"
+                },
+                "metric_name": "column.min",
+                "metric_value_kwargs": null
+              },
+              "num_batches": 1
+            }
+          }
+        }
+      },
+      "meta": {},
+      "result": {},
+      "success": false
+    },
+    {
+      "exception_info": {
+        "exception_message": "Error: The column \"month\" in BatchData does not exist.",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\execution_engine\\execution_engine.py\", line 556, in _process_direct_and_bundled_metric_computation_configurations\n    **metric_computation_configuration.metric_provider_kwargs\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\expectations\\metrics\\metric_provider.py\", line 50, in inner_func\n    return metric_fn(*args, **kwargs)\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\expectations\\metrics\\column_aggregate_metric_provider.py\", line 79, in inner_func\n    batch_columns_list=metrics[\"table.columns\"],\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\expectations\\metrics\\util.py\", line 676, in get_dbms_compatible_column_names\n    error_message_template=error_message_template,\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\expectations\\metrics\\util.py\", line 753, in _verify_column_names_exist_and_get_normalized_typed_column_names_map\n    message=error_message_template.format(column_name=column_name)\ngreat_expectations.exceptions.exceptions.InvalidMetricAccessorDomainKwargsKeyError: Error: The column \"month\" in BatchData does not exist.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\validator\\validation_graph.py\", line 279, in _resolve\n    runtime_configuration=runtime_configuration,\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\execution_engine\\execution_engine.py\", line 292, in resolve_metrics\n    metric_fn_bundle_configurations=metric_fn_bundle_configurations,\n  File \"c:\\users\\harsh\\desktop\\neu spring 23\\big data\\a2\\fast-api-airflow-dockerization-streamlit-contrab-great-expectations\\ge\\genv\\lib\\site-packages\\great_expectations\\execution_engine\\execution_engine.py\", line 564, in _process_direct_and_bundled_metric_computation_configurations\n    ) from e\ngreat_expectations.exceptions.exceptions.MetricResolutionError: Error: The column \"month\" in BatchData does not exist.\n",
+        "raised_exception": true
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_max_to_be_between",
+        "kwargs": {
+          "batch_id": "7cfc23c8f2d00ae8f13b19e923bf247a",
+          "column": "month",
+          "max_value": 12,
+          "min_value": 1,
+          "strict_max": false,
+          "strict_min": false
+        },
+        "meta": {
+          "profiler_details": {
+            "metric_configuration": {
+              "domain_kwargs": {
+                "column": "month"
+              },
+              "metric_name": "column.max",
+              "metric_value_kwargs": null
+            },
+            "num_batches": 1
+          }
+        }
+      },
+      "meta": {},
+      "result": {},
+      "success": false
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_table_row_count_to_be_between",
+        "kwargs": {
+          "batch_id": "7cfc23c8f2d00ae8f13b19e923bf247a",
+          "max_value": 1000000,
+          "min_value": 0
+        },
+        "meta": {
+          "profiler_details": {
+            "metric_configuration": {
+              "domain_kwargs": {},
+              "metric_name": "table.row_count",
+              "metric_value_kwargs": null
+            },
+            "num_batches": 1
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "observed_value": 4524
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_table_columns_to_match_set",
+        "kwargs": {
+          "batch_id": "7cfc23c8f2d00ae8f13b19e923bf247a",
+          "column_set": [
+            "station",
+            "day",
+            "month",
+            "year"
+          ]
+        },
+        "meta": {
+          "profiler_details": {
+            "success_ratio": 1.0
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "details": {
+          "mismatched": {
+            "missing": [
+              "month"
+            ],
+            "unexpected": [
+              "hour"
+            ]
+          }
+        },
+        "observed_value": [
+          "day",
+          "hour",
+          "station",
+          "year"
+        ]
+      },
+      "success": false
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "7cfc23c8f2d00ae8f13b19e923bf247a",
+          "column": "year"
+        },
+        "meta": {
+          "profiler_details": {
+            "metric_configuration": {
+              "domain_kwargs": {
+                "column": "year"
+              },
+              "metric_name": "column_values.nonnull.unexpected_count",
+              "metric_value_kwargs": null
+            },
+            "num_batches": 1
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 4524,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_be_between",
+        "kwargs": {
+          "batch_id": "7cfc23c8f2d00ae8f13b19e923bf247a",
+          "column": "year",
+          "max_value": 2023,
+          "min_value": 1970,
+          "mostly": 1.0,
+          "strict_max": false,
+          "strict_min": false
+        },
+        "meta": {
+          "profiler_details": {
+            "column_max_values_range_estimator": {
+              "metric_configuration": {
+                "domain_kwargs": {
+                  "column": "year"
+                },
+                "metric_name": "column.max",
+                "metric_value_kwargs": null
+              },
+              "num_batches": 1
+            },
+            "column_min_values_range_estimator": {
+              "metric_configuration": {
+                "domain_kwargs": {
+                  "column": "year"
+                },
+                "metric_name": "column.min",
+                "metric_value_kwargs": null
+              },
+              "num_batches": 1
+            }
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 4524,
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "unexpected_percent_nonmissing": 0.0,
+        "unexpected_percent_total": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "7cfc23c8f2d00ae8f13b19e923bf247a",
+          "column": "station"
+        },
+        "meta": {
+          "profiler_details": {
+            "metric_configuration": {
+              "domain_kwargs": {
+                "column": "station"
+              },
+              "metric_name": "column_values.nonnull.unexpected_count",
+              "metric_value_kwargs": null
+            },
+            "num_batches": 1
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 4524,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "7cfc23c8f2d00ae8f13b19e923bf247a",
+          "column": "day"
+        },
+        "meta": {
+          "profiler_details": {
+            "metric_configuration": {
+              "domain_kwargs": {
+                "column": "day"
+              },
+              "metric_name": "column_values.nonnull.unexpected_count",
+              "metric_value_kwargs": null
+            },
+            "num_batches": 1
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 4524,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_be_between",
+        "kwargs": {
+          "batch_id": "7cfc23c8f2d00ae8f13b19e923bf247a",
+          "column": "day",
+          "max_value": 365,
+          "min_value": 0,
+          "mostly": 1.0,
+          "strict_max": false,
+          "strict_min": false
+        },
+        "meta": {
+          "profiler_details": {
+            "column_max_values_range_estimator": {
+              "metric_configuration": {
+                "domain_kwargs": {
+                  "column": "day"
+                },
+                "metric_name": "column.max",
+                "metric_value_kwargs": null
+              },
+              "num_batches": 1
+            },
+            "column_min_values_range_estimator": {
+              "metric_configuration": {
+                "domain_kwargs": {
+                  "column": "day"
+                },
+                "metric_name": "column.min",
+                "metric_value_kwargs": null
+              },
+              "num_batches": 1
+            }
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 4524,
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "unexpected_percent_nonmissing": 0.0,
+        "unexpected_percent_total": 0.0
+      },
+      "success": true
+    }
+  ],
+  "statistics": {
+    "evaluated_expectations": 10,
+    "success_percent": 60.0,
+    "successful_expectations": 6,
+    "unsuccessful_expectations": 4
+  },
+  "success": false
+}
