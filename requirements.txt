@@ -120,5 +120,5 @@ uvloop==0.17.0
 validators==0.20.0
 watchfiles==0.18.1
 wcwidth==0.2.6
-websockets==10.4
 zipp==3.13.0
+websockets==10.4

@@ -156,15 +156,3 @@ if password == confirm_password:
         register = register_user(name,username,password)
 if password != confirm_password:
     st.sidebar.write("Passwords don't match, Try Again!")  
-
-
-   
-
-
-
-
-
-
-
-
-
