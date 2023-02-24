@@ -10,7 +10,7 @@ from Functions.searchByPath import geos_search_by_path
 from Functions.searchByPath import nexrad_search_by_path
 from Functions.databaseAuth import get_user_auth_table
 from Functions.databaseAuth import register_user
-from Functions.databaseAuth import get_db
+
 
 
 st.set_page_config(
@@ -25,6 +25,9 @@ auth_df = get_user_auth_table()
 names = auth_df['name'].tolist()
 usernames = auth_df['username'].tolist()
 hashed_passwords = auth_df['password'].tolist()
+# usernames = ['a']
+# hashed_passwords = ['$2b$12$ygMdN2YIYMgcpixCfIQTI.6WDtnEB7Qy8kx7WoGjMPkh49jRIdxd2']
+# names = ['a']
 cookie_expiry_days = 3
 authenticator = stauth.Authenticate(
     names,
@@ -86,7 +89,7 @@ if authentication_status:
         )
 
     if selected == "GEOS":
-        connection = get_db("meta_data.db")
+        connection = sqlite3.connect("../streamlit/meta_data.db")
         cursor = connection.cursor()
 
         st.write("# GEOS Satellite Data Downloader 🛰")
@@ -101,7 +104,7 @@ if authentication_status:
             geos_search_by_filename()
 
     if selected == "NexRad":
-        connection = get_db("meta_data.db")
+        connection = sqlite3.connect("../streamlit/meta_data.db")
         cursor = connection.cursor()
 
         st.write("# NexRad Data Downloader 📡")
@@ -115,10 +118,10 @@ if authentication_status:
         if search_method == "Search by Filename":
             nexrad_search_by_filename()
 
-    if selected == "Locations":
+    if selected == "NexRad Locations":
         st.write("# Nexrad Locations in USA 📍")
-        #filename issue
-        df = pd.read_csv('./nexrad_loc.csv')
+      #filename issue
+        df = pd.read_csv('../../ass-1/streamlit/nexrad_loc.csv')
         df['text'] = 'City: ' + df['City'] + ', ' + 'State: ' + df["State"] + ', ' + 'Identifier: ' + df[
             'ICAO Location Identifier'].astype(str)
 
