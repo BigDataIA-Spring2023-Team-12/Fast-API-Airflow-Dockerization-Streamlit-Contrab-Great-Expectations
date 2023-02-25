@@ -20,41 +20,41 @@ app = FastAPI()
 
 security = HTTPBasic()
 # dependencies=[Depends(JWTBearer())]
-@app.get("/geos-get-by-path/{station}/{year}/{day}/{hour}")
+@app.get("/geos-get-by-path/{station}/{year}/{day}/{hour}",dependencies=[Depends(JWTBearer())])
 async def geos_get_files_path(station,year,day,hour):
     path = "{}/{}/{}/{}/".format(station, year, day, hour)
     result = extract_files("noaa-goes18",path)
     
     return result
 
-@app.get("/nexrad-get-by-path/{year}/{month}/{day}/{station}")
+@app.get("/nexrad-get-by-path/{year}/{month}/{day}/{station}",dependencies=[Depends(JWTBearer())])
 async def nexrad_get_files_path(year,month,day,station):
     path = "{}/{}/{}/{}/".format(year,month,day,station)
     result = extract_files("noaa-nexrad-level2",path)
     return result
 
 
-@app.get("/geos-download-by-path/{station}/{year}/{day}/{hour}/{filename}")
+@app.get("/geos-download-by-path/{station}/{year}/{day}/{hour}/{filename}",dependencies=[Depends(JWTBearer())])
 async def geos_download_files_path(station,year,day,hour,filename):
     path = "{}/{}/{}/{}/".format(station, year, day, hour)
     url = upload_file_to_s3(filename, path, "noaa-goes18", "the-data-guys")
     return """<a href={}> Click Here to download file  </a>""".format(url)
 
 
-@app.get("/nexrad-download-by-path/{year}/{month}/{day}/{station}/{filename}")
+@app.get("/nexrad-download-by-path/{year}/{month}/{day}/{station}/{filename}",dependencies=[Depends(JWTBearer())])
 async def geos_download_files_path(year,month,day,station,filename):
     path = "{}/{}/{}/{}/".format(year,month,day,station)
     url = upload_file_to_s3(filename, path, "noaa-nexrad-level2", "the-data-guys")
     return """<a href={}> Click Here to download file  </a>""".format(url)
 
 
-@app.get("/geos-download-by-name/{filename}",response_class=HTMLResponse)
+@app.get("/geos-download-by-name/{filename}",response_class=HTMLResponse,dependencies=[Depends(JWTBearer())])
 async def geos_download_files_name(filename):
     url = geos_url_gen(filename) 
     return """<a href={}> Click Here to download file  </a>""".format(url)
 
 
-@app.get("/nexrad-download-by-name/{filename}",response_class=HTMLResponse)
+@app.get("/nexrad-download-by-name/{filename}",response_class=HTMLResponse,dependencies=[Depends(JWTBearer())])
 async def nexrad_download_files_name(filename):
     url = nexrad_url_gen(filename) 
     return """<a href={}> Click Here to download file  </a>""".format(url)
