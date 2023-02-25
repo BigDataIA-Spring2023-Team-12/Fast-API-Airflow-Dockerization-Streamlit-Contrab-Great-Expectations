@@ -19,72 +19,49 @@ from Functions.databaseAuth import get_db
 app = FastAPI()
 
 security = HTTPBasic()
-
-# @app.get("/protected")
-# async def protected_route(credentials: HTTPBasicCredentials = Depends(security), db = Depends(get_db("auth_data.db"))):
-#     # get stored password
-#     cursor = db.cursor()
-#     print(credentials.password)
-#     res = cursor.execute("SELECT * FROM api_auth WHERE username=?", (credentials.username))
-#     user = res.fetchone()
-#     # hash user passowrd
-#     hashed = hashlib.sha256(credentials.password.encode())
-#     if not user or user["password"] != hashed.hexdigest():
-#         raise HTTPException(status_code=401, detail="Invalid credentials")
-#     global user_authenticated
-#     return {"message": "This is a protected route"}
-
-
-# (station, year, day, hour)
-@app.get("/geos-get-by-path/{station}/{year}/{day}/{hour}",dependencies=[Depends(JWTBearer("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYiIsImV4cGlyZXMiOjE2NzcxNzY2NjAuNzAyNzMyfQ.bMey_TvCn4KIy2OLIs0E-IE2HSuW7VyeCbJomSp10Os"))])
+# dependencies=[Depends(JWTBearer())]
+@app.get("/geos-get-by-path/{station}/{year}/{day}/{hour}")
 async def geos_get_files_path(station,year,day,hour):
     path = "{}/{}/{}/{}/".format(station, year, day, hour)
     result = extract_files("noaa-goes18",path)
     
     return result
 
-@app.get("/nexrad-get-by-path/{year}/{month}/{day}/{station}",dependencies=[Depends(JWTBearer())])
+@app.get("/nexrad-get-by-path/{year}/{month}/{day}/{station}")
 async def nexrad_get_files_path(year,month,day,station):
     path = "{}/{}/{}/{}/".format(year,month,day,station)
     result = extract_files("noaa-nexrad-level2",path)
     return result
 
-@app.get("/geos-download-by-path/{station}/{year}/{day}/{hour}/{filename}",dependencies=[Depends(JWTBearer())])
+
+@app.get("/geos-download-by-path/{station}/{year}/{day}/{hour}/{filename}")
 async def geos_download_files_path(station,year,day,hour,filename):
     path = "{}/{}/{}/{}/".format(station, year, day, hour)
     url = upload_file_to_s3(filename, path, "noaa-goes18", "the-data-guys")
     return """<a href={}> Click Here to download file  </a>""".format(url)
 
-@app.get("/nexrad-download-by-path/{year}/{month}/{day}/{station}/{filename}",dependencies=[Depends(JWTBearer())])
+
+@app.get("/nexrad-download-by-path/{year}/{month}/{day}/{station}/{filename}")
 async def geos_download_files_path(year,month,day,station,filename):
     path = "{}/{}/{}/{}/".format(year,month,day,station)
     url = upload_file_to_s3(filename, path, "noaa-nexrad-level2", "the-data-guys")
     return """<a href={}> Click Here to download file  </a>""".format(url)
 
-@app.get("/geos-download-by-name/{filename}",response_class=HTMLResponse,dependencies=[Depends(JWTBearer())])
+
+@app.get("/geos-download-by-name/{filename}",response_class=HTMLResponse)
 async def geos_download_files_name(filename):
     url = geos_url_gen(filename) 
     return """<a href={}> Click Here to download file  </a>""".format(url)
 
-@app.get("/nexrad-download-by-name/{filename}",response_class=HTMLResponse,dependencies=[Depends(JWTBearer())])
+
+@app.get("/nexrad-download-by-name/{filename}",response_class=HTMLResponse)
 async def nexrad_download_files_name(filename):
     url = nexrad_url_gen(filename) 
     return """<a href={}> Click Here to download file  </a>""".format(url)
 
-#-----------------
-# @app.post("/posts", dependencies=[Depends(JWTBearer())], tags=["posts"])
-# def add_post(post: PostSchema):
-#     post.id = len(posts) + 1
-#     posts.append(post.dict())
-#     return {
-#         "data": "post added."
-#     }
-
 
 @app.post("/user/signup", tags=["user"])
 def create_user(user: UserSignupSchema = Body()):
-    print(user)
-
     conn = get_db("auth_data.db")
     cursor = conn.cursor()
     res = cursor.execute("SELECT username FROM api_auth")
@@ -109,6 +86,6 @@ def user_login(user: UserLoginSchema = Body()):
     # hash user passowrd
     hashed = hashlib.sha256(user.password.encode())
     if not db_user or db_user["password"] != hashed.hexdigest():
-        raise HTTPException(status_code=401, detail="Invalid credentials")
+        raise HTTPException(status_code=401, detail="Invalid credentials")    
     return signJWT(user.username)
-   
+

@@ -13,12 +13,14 @@ def token_response(token: str):
     return {
         "access_token": token
     }
+    return 
+
 
 # function used for signing the JWT string
 def signJWT(user_id: str) -> Dict[str, str]:
     payload = {
         "user_id": user_id,
-        "expires": time.time() + 600
+        "expires": time.time() + 6000
     }
     token = jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
 
