@@ -5,9 +5,10 @@ import jwt
 from decouple import config
 
 
-JWT_SECRET = config("secret")
-JWT_ALGORITHM = config("algorithm")
-
+# JWT_SECRET = config("secret")
+# JWT_ALGORITHM = config("algorithm")
+JWT_SECRET = "abcdefg"
+JWT_ALGORITHM = HS256
 
 def token_response(token: str):
     return {
