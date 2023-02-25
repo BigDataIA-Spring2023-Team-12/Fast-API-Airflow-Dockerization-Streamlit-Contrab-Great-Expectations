@@ -1,5 +1,5 @@
 Step 1:\
-```docker build -t my-streamlit-app .```
+```docker build -t my-streamlit-app -f Dockerfile.streamlit .```
 
 
 Step 2:\
