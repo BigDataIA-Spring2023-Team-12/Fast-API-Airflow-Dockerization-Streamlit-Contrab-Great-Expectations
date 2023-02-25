@@ -26,6 +26,7 @@ names = auth_df['name'].tolist()
 usernames = auth_df['username'].tolist()
 hashed_passwords = auth_df['password'].tolist()
 cookie_expiry_days = 3
+
 authenticator = stauth.Authenticate(
     names,
     usernames,
@@ -35,7 +36,8 @@ authenticator = stauth.Authenticate(
     cookie_expiry_days
     )
 
-name,authentication_status, username = authenticator.login("Login", "main")
+name, authentication_status, username = authenticator.login("Login", "main")
+
 
 if authentication_status == False:
     st.error("Username/password is incorrect")
@@ -146,14 +148,14 @@ if authentication_status:
 
     
 st.sidebar.write('## Sign up')
-name = st.sidebar.text_input('Name')   
+signup_name = st.sidebar.text_input('Name')   
 username = st.sidebar.text_input('Username')
 password = st.sidebar.text_input('Password', type='password')
 confirm_password = st.sidebar.text_input('Confirm Password', type='password')
 if password == confirm_password:
     st.sidebar.write("Password Match!")
     if st.sidebar.button('Sign up'):
-        register = register_user(name,username,password)
+        register = register_user(signup_name,username,password)
 if password != confirm_password:
     st.sidebar.write("Passwords don't match, Try Again!")  
 
