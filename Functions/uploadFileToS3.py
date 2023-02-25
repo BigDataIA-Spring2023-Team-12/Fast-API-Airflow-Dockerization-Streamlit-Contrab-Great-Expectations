@@ -20,7 +20,7 @@ def upload_file_to_s3(file_name, prefix, source_bucket_name, target_bucket_name)
     """
     # Create an S3 client and an S3 resource
     s3_client = boto3.client('s3')
-    session = boto3.Session(aws_access_key_id="AKIAWFZMBX3F2BMPDVXS",aws_secret_access_key="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")
+    session = boto3.Session(aws_access_key_id="",aws_secret_access_key="")
     s3_resource = session.resource('s3')
     # Get file from source bucket
     # Create a source object from the S3 resource
